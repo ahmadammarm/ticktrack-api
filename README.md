@@ -47,7 +47,7 @@ The project provides a RESTful API for posts. The API follows standard REST conv
 
 ### 📊 Dashboard
 
-- `get /api/dashboard` - Get overall ticket statistics
+- `GET /api/dashboard` - Get overall ticket statistics
 
 
 ## Getting Started
