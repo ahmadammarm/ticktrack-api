@@ -79,7 +79,7 @@ php artisan migrate --seed
 ```
 
 
-5. Run the project:
+6. Run the project:
 
 ```sh
 php artisan serve
