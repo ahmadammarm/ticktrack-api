@@ -14,9 +14,10 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'getStatistics'])->name('dashboard.statistics');
 
+    Route::post('/ticket', [App\Http\Controllers\TicketController::class, 'store'])->name('tickets.store');
     Route::get('/tickets', [App\Http\Controllers\TicketController::class, 'index'])->name('tickets.index');
     Route::get('/ticket/{code}', [App\Http\Controllers\TicketController::class, 'show'])->name('tickets.show');
-    Route::post('/ticket', [App\Http\Controllers\TicketController::class, 'store'])->name('tickets.store');
-    Route::post('/ticket/{code}/reply', [App\Http\Controllers\TicketController::class, 'reply'])->name('tickets.reply');
     Route::delete('/ticket/{code}', [App\Http\Controllers\TicketController::class, 'destroy'])->name('tickets.destroy');
+
+    Route::post('/ticket/{code}/reply', [App\Http\Controllers\TicketController::class, 'reply'])->name('tickets.reply');
 });
