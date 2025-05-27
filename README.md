@@ -45,6 +45,11 @@ The project provides a RESTful API for posts. The API follows standard REST conv
 - `POST /api/ticket/:code/reply` - Post a reply to a specific ticket by code
 
 
+### 📊 Dashboard
+
+- `get /api/dashboard` - Get overall ticket statistics
+
+
 ## Getting Started
 
 1. Clone the repository:
