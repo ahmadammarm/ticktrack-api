@@ -1,61 +1,96 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Ticktrack
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+An application for track interactions and status of customer support requests built with Laravel 12.
 
-## About Laravel
+## Prequisites
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- PHP >= 8.1
+- Composer
+- MySQL (any versions)
+- Laravel 12
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Features
 
-## Learning Laravel
+- **Multi Role Authentication**: Supports role-based access control (admin and user)
+- **Bearer Token Authentication**: Uses bearer tokens for secure API authentication.
+- **Ticket CRUD**: Create, view, and delete tickets using unique codes.
+- **Ticket Replies**: Add replies to support tickets.
+- **Ticket Dashboard**: Provides a centralized dashboard for managing submitted tickets.
+- **Configuration**: Supports environment variables configuration via .env files.
+  
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## REST API Design
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+The project provides a RESTful API for posts. The API follows standard REST conventions:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🔐 Authentication
 
-## Laravel Sponsors
+- `POST /api/login` - Log in and retrieve access token
+- `POST /api/register` - Register a new user
+- `GET /api/me` - Get the currently authenticated user
+- `POST /api/logout` - Log out and revoke token
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
+### 🎫 Tickets
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- `POST /api/ticket` - Create a new ticket
+- `GET /api/tickets` - Get all submitted tickets by currently authenticated user
+- `GET /api/ticket/:code` - Get a specific ticket by code
+- `DELETE /api/ticket/:code` - Delete a ticket by code
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 💬 Ticket Replies
 
-## Code of Conduct
+- `POST /api/ticket/:code/reply` - Post a reply to a specific ticket by code
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+## Getting Started
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. Clone the repository:
 
-## License
+```sh
+git clone https://github.com/ahmadammarm/ticktrack-api.git
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2. Navigate to the project directory:
+
+```sh
+cd ticktrack-api
+```
+
+3. Install the project dependencies:
+
+```sh
+composer install
+```
+
+4. Configure Environment Variable: Copy the file `.env.example` to `.env` and adjust it to your configuration:
+
+```sh
+cp .env.example .env
+```
+
+5. Generate application key and run migrations:
+
+```sh
+php artisan key:generate
+php artisan migrate --seed
+```
+
+
+5. Run the project:
+
+```sh
+php artisan serve
+```
+
+
+The project will be available at:
+
+`http://127.0.0.1:8000`
+
+
+## Contribution
+Contributions are welcome! Feel free to open issues or submit pull requests. For major changes, please open an issue first to discuss what you would like to change.
+
