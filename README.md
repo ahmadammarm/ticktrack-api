@@ -26,7 +26,7 @@ An application for track interactions and status of customer support requests bu
 
 ## REST API Design
 
-The project provides a RESTful API for posts. The API follows standard REST conventions:
+The project provides a RESTful API for user authentication and manage the tickets. The API follows standard REST conventions:
 
 ### 🔐 Authentication
 
