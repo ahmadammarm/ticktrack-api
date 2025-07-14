@@ -2,6 +2,10 @@
 
 An application for track interactions and status of customer support requests built with Laravel 12.
 
+
+# 💻 Tech Stack:
+![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
+
 ## Prequisites
 
 - PHP >= 8.1
